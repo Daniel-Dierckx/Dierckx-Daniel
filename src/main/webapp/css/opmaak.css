@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+footer {
+
+    background-color: #282e34;
+    color: #46d0e8;
+    text-align: center;
+    font-size: 1.2rem;
+    position: fixed;
+    padding: 10px 10px 15px 10px;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+
+}
+a:visited {
+    color: 	#FFFAFA;
+}
+
+a:hover {
+    color:	#46d0e8;
+}
+
+a{
+    text-decoration: none;
+    border-bottom: 1px solid;
+    padding-bottom: 0.1rem;
+}
+
+nav ul {
+    padding-left: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #282e34;
+    font-family: sans-serif;
+
+
+}
+nav ul li {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.3rem;
+    width: calc(100%/3);
+    text-align: center;
+    list-style-type: none;
+
+}
+nav ul li a {
+
+    display: block;
+    padding: .5rem 0.5rem;
+    margin: .5rem;
+    font-weight: bold;
+}
+nav ul li a:link,
+nav ul li a:visited {
+    color: #46d0e8;
+}
+
+nav ul li a:focus,
+nav ul li a:hover,
+nav ul li a:active {
+    color: #282e34;
+    border: 1px solid #FCFBF7;
+    background-color: #46d0e8;
+    transition: background-color 1s;
+}
+
+
+
+body{
+    background-color: #e1f8fc;
+}
+main{
+    margin: 1rem 1rem 1rem 0;
+    font-family: Georgia, sans-serif;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+#invulformulier{
+    margin: 2% 5% 2% 5%;
+    padding: 1% 5% 1% 5%;
+    background: #282e34;
+
+}
+
+#drankeigenschappen{
+    margin: 10%;
+    padding: 5%;
+    border-style: solid;
+    border-width: 0.2rem;
+    border-radius: 15px;
+    text-align: center;
+    border-color: #46d0e8;
+}
+
+#drankeigenschappen ul li{
+    list-style-type: none;
+    line-height: 1.5rem;
+    padding-top: 0.5rem;
+}
+
+#invulformulier label {
+    color: #46d0e8;
+}
+
+@media all and (min-width: 0rem){
+    nav ul li {
+        width:calc(100%/1);
+        font-size: 0.7rem;
+    }
+
+}
+
+#invulformulier{
+    margin: 0;
+
+}
+
+
+#drankeigenschappen {
+    border: none;
+}
+@media all and (min-width:400px) {
+    nav ul li {
+        width: calc(100% / 1);
+        font-size: 0.7rem;
+    }
+}
+
+@media all and (min-width: 600px) {
+    nav ul li {
+
+        font-size: 1rem;
+    }
+}
+
+#invulformulier{
+    margin: 2% 5% 2% 5%;
+    padding: 1% 5% 3% 5%;
+}
+
+#drankeigenschappenµ {
+    border-style: solid;
+    border-width: 0.2rem;
+    border-radius: 15px;
+    border-color: #46d0e8;
+}
+
+
+@media all and  (min-width: 800px) {
+
+    nav ul li {
+        width: calc(100% / 3);
+        font-size: 0.7rem;
+    }
+}
+
+
+@media all and (min-width:960px) {
+    nav ul li {
+        width:calc(100%/3);
+        font-size: 1rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
