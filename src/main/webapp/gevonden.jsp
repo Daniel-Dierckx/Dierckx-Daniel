@@ -1,27 +1,26 @@
 <%--
   Created by IntelliJ IDEA.
   User: Daniel Dierckx
-  Date: 21/02/2021
-  Time: 16:47
+  Date: 16/03/2021
+  Time: 15:25
   To change this template use File | Settings | File Templates.
 --%>
-
 <%@ page import="domain.db.model.Drank" %>
 <%@ page import="java.util.ArrayList" %>
 <%ArrayList<Drank> drankList = (ArrayList<Drank>) request.getAttribute("drinken");%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% Drank drank = (Drank) request.getAttribute("drank"); %>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overzicht Drankaanbod</title>
+    <title>DrankHandel Dierckx</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/opmaak.css">
 
 </head>
 <body>
-
 <header >
     <nav>
         <ul>
@@ -36,30 +35,36 @@
     </nav>
 </header>
 
-<main id ="container">
-<h1>Dranklijst</h1>
-    <hr>
-    <div class="tabel" style="overflow-x: auto">
+<main class="container">
+    <article >
+        <p class="vraagnaar">Dit zijn de gegevens waar u naar vroeg. </p>
+    </article>
+    <div id="tabel" >
         <table>
+            <thead>
             <tr>
-                <th>Naam</th>
+                <th>Drank</th>
                 <th>Soort</th>
-                <th>Alcohol%</th>
+                <th>Alcohol %</th>
                 <th>Pas aan</th>
-                <th>verwijder</th>
+                <th>Verwijder</th>
             </tr>
-            <%for (Drank drank : drankList ){%>
+            </thead>
+            <tbody>
 
             <tr>
-                <td><%=drank.getDrankNaam()%></td>
-                <td><%=drank.getSoort()%></td>
-                <td><%=drank.getAlcohol()%></td>
-                <td>Pas aan</td>
-                <td>
-                    <a href="Controller?command=deleteConfirmation&drank-naam=<%=drank.getDrankNaam()%>">Verwijder</a>
+                <td><%=drank.getDrankNaam()%>
+                </td>
+                <td><%=drank.getSoort()%>
+                </td>
+                <td><%=drank.getAlcohol()%>
+                </td>
+                <td>Pas aan
+                </td>
+                <td><a href="Controller?command=deleteConfirmation&drank-naam=<%=drank.getDrankNaam()%>">Verwijder</a>
                 </td>
             </tr>
-            <%}%>
+            </tbody>
         </table>
     </div>
 </main>
@@ -67,6 +72,7 @@
 <footer>
     <p>©DrankHandel Dierckx</p>
 </footer>
+
 
 </body>
 </html>

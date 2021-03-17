@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Daniel Dierckx
+  Date: 14/03/2021
+  Time: 15:42
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="nl">
@@ -23,17 +30,22 @@
         </ul>
     </nav>
 </header>
-<main id="container">
+<main id = "container">
     <article>
         <h1>Drankhandel Dierckx</h1>
-        <p>Welkom bij drankhandel Dierckx. Wij hebben een ruim aanbod aan alcoholische dranken. Van Bier tot jenever. Ons bedrijf staat
-           bekend voor een vertrouwen en een eerlijke prijs. Ons magazijn staat in in de kempische stad Turnhout.  </p>
 
-        <p>een bestelling kan worden geplaats. bel gerust nummer 0487888989. </p>
+        <form action="Controller?command=search" method="POST" novalidate>
+            <label for="drank-naam">Drank</label>
+            <input type="text" id="drank-naam" name="drank-naam">
+
+
+            <input type="submit" value="Search">
+        </form>
+
+
     </article>
 
-    <h3>drank met hoogste percentage: <%=request.getAttribute("strongestDrank")%>
-    </h3>
+
 </main>
 
 <footer>
