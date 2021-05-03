@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Daniel Dierckx
@@ -19,54 +20,54 @@
 
 <body>
 
-<header>
-    <nav>
-        <ul>
+<jsp:include page="header.jsp">
+    <jsp:param name="actual" value="add"/>
+</jsp:include>
 
+<main id="container">
+    <h1>Titel</h1>
+    <div class="Econtainer">
+        <c:if test="${not empty errors}">
+        <div class="error">
+            <c:forEach var="error" items="${errors}">
+                <ul>
+                    <li>${error}</li>
+                </ul>
+            </c:forEach>
+        </div>
+        </c:if>
 
-            <li><a href="Controller?command=home">Homepagina</a></li>
-            <li><a href="Controller?command=overview">Overzicht</a></li>
-            <li><a href="voegtoe.jsp">Voeg Toe</a></li>
-            <li><a href="zoekDrank.jsp">zoekDrank</a></li>
+        <article id="invulformulier">
+            <section id="eigenschappen">
+                <form action="Controller?command=add" method="POST" novalidate>
 
-        </ul>
-    </nav>
-</header>
+                    <p class="groep ${drankNaamClass}">
+                        <label for="drankNaam">drank naam*</label>
+                        <input type="text" id="drankNaam" name="drankNaam" required>
+                    </p>
 
-<main id ="container">
+                    <p class="groep ${soortClass}">
+                        <label for="soort">Dranksoort:*</label>
+                        <select id="soort" name="soort">
+                            <option value="Bier">Bier</option>
+                            <option value="Wijn">Wijn</option>
+                            <option value="Whiskey">Whiskey</option>
+                            <option value="Jenever">Jenever</option>
+                        </select>
+                    </p>
 
-    <article id="invulformulier">
-        <section id="eigenschappen">
-            <form action="Controller?command=add" id="drankeigenschappen"  method="POST" novalidate>
+                    <p class="form-group ${alcoholClass}">
+                        <label for="alcohol">Alcohol %:*</label>
+                        <input id="alcohol" name="alcohol" type="number" step=".1" min="0"
+                               required>
 
-                <label for="drank-naam">Naam:*</label>
-                <input id="drank-naam" name="drank-naam" type="text" required>
-
-                <label for="soort">Dranksoort:*</label>
-                <select id="soort" name="soort">
-                        <option value="0"></option>
-                        <option value="Bier">Bier</option>
-                        <option value="Wijn">Wijn</option>
-                        <option value="Whiskey">Whiskey</option>
-                        <option value="Jenever">Jenever</option>
-                </select>
-
-                <label for="alcohol">Alcohol %:*</label>
-                <input id="alcohol" name="alcohol" type="number" step=".1" min="0" required>
-
-                <input type="submit" value="Submit">
-
-
-            </form>
-        </section>
-    </article>
-
-
+                        <input type="submit" value="Submit">
+                </form>
+            </section>
+        </article>
 </main>
 
-<footer>
-    <p>©DrankHandel Dierckx</p>
-</footer>
+<jsp:include page="footer.jsp"/>
 
 </body>
 </html>

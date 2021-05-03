@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Daniel Dierckx
@@ -17,40 +18,44 @@
 
 </head>
 <body>
-<header >
-    <nav>
-        <ul>
 
+<jsp:include page="header.jsp">
+    <jsp:param name="actual" value="search"/>
+</jsp:include>
 
-            <li><a href="Controller?command=home">Homepagina</a></li>
-            <li><a href="Controller?command=overview">Overzicht</a></li>
-            <li><a href="voegtoe.jsp">Voeg Toe</a></li>
-            <li><a href="zoekDrank.jsp">zoekDrank</a></li>
-
-        </ul>
-    </nav>
-</header>
 <main id = "container">
+    <c:if test="${not empty errors}">
+        <div class="error">
+            <c:forEach var="error" items="${errors}">
+                <ul>
+                    <li>${error}</li>
+                </ul>
+            </c:forEach>
+        </div>
+    </c:if>
     <article>
         <h1>Drankhandel Dierckx</h1>
 
         <form action="Controller?command=search" method="POST" novalidate>
-            <label for="drank-naam">Drank</label>
-            <input type="text" id="drank-naam" name="drank-naam">
+            <p class="groep ${drankNaamClass}">
+            <label for="drankNaam">Drank</label>
+            <input type="text" id="drankNaam" name="drankNaam" value="${prevdrankNaam}">
 
 
             <input type="submit" value="Search">
         </form>
 
+        <c:if test="${not empty prevSearch}">
+            <p>de laatset drank die je bezocht was: ${prevSearch}</p>
+        </c:if>
 
     </article>
 
 
 </main>
 
-<footer>
-    <p>©DrankHandel Dierckx</p>
-</footer>
+<jsp:include page="footer.jsp"/>
+
 
 </body>
 </html>

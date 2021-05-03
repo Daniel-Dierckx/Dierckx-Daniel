@@ -4,8 +4,8 @@ public class Drank {
     private String drankNaam, soort;
     double alcohol;
 
-    public Drank(int alcohol) {
-        this("placeholder","placeholder",alcohol);
+    public Drank() {
+        this("placeholder","placeholder",0);
     }
 
     public Drank(String drankNaam,  String soort, double alcohol) {

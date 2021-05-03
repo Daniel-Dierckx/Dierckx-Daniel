@@ -7,9 +7,8 @@
 --%>
 <%@ page import="domain.db.model.Drank" %>
 <%@ page import="java.util.ArrayList" %>
-<%ArrayList<Drank> drankList = (ArrayList<Drank>) request.getAttribute("drinken");%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% Drank drank = (Drank) request.getAttribute("drank"); %>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -21,19 +20,9 @@
 
 </head>
 <body>
-<header >
-    <nav>
-        <ul>
-
-
-            <li><a href="Controller?command=home">Homepagina</a></li>
-            <li><a href="Controller?command=overview">Overzicht</a></li>
-            <li><a href="voegtoe.jsp">Voeg Toe</a></li>
-            <li><a href="zoekDrank.jsp">zoekDrank</a></li>
-
-        </ul>
-    </nav>
-</header>
+<jsp:include page="header.jsp">
+    <jsp:param name="actual" value="Overview"/>
+</jsp:include>
 
 <main class="container">
     <article >
@@ -53,15 +42,15 @@
             <tbody>
 
             <tr>
-                <td><%=drank.getDrankNaam()%>
+                <td>${drank.drankNaam}
                 </td>
-                <td><%=drank.getSoort()%>
+                <td>${drank.soort}
                 </td>
-                <td><%=drank.getAlcohol()%>
+                <td>${drank.alcohol}
                 </td>
                 <td>Pas aan
                 </td>
-                <td><a href="Controller?command=deleteConfirmation&drank-naam=<%=drank.getDrankNaam()%>">Verwijder</a>
+                <td><a href="Controller?command=deleteConfirmation&drankNaam=${drank.drankNaam}">Verwijder</a>
                 </td>
             </tr>
             </tbody>
@@ -69,10 +58,7 @@
     </div>
 </main>
 
-<footer>
-    <p>©DrankHandel Dierckx</p>
-</footer>
-
+<jsp:include page="footer.jsp"/>
 
 </body>
 </html>

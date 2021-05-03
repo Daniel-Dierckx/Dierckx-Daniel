@@ -1,5 +1,6 @@
 package domain.db.model;
 
+import domain.db.model.Drank;
 import java.util.ArrayList;
 
 public class DrankDB {
@@ -10,7 +11,8 @@ public class DrankDB {
     }
 
     public void addDrank(Drank drank) {
-        if (drank == null) throw new IllegalArgumentException("Drank kan niet null zijn. ");
+        if (drank == null) throw new IllegalArgumentException("Drank kan niet null zijn.");
+        if (getDrank(drank.getDrankNaam()) != null) throw new IllegalArgumentException("Lijst bevat deze drank al.");
         drankList.add(drank);
     }
 
@@ -28,7 +30,7 @@ public class DrankDB {
     }
 
     public Drank getStrongestDrank() {
-        Drank strongestDrank = new Drank(0);
+        Drank strongestDrank = new Drank();
 
         for (Drank drank : drankList) {
             if (drank.getAlcohol() > strongestDrank.getAlcohol()) {
